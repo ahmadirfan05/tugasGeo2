@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Membuat Map dan Menentukan Lokasi</title>
+
+    <link rel="stylesheet" href="leaflet.css" />
+    <script src="leaflet.js"></script>
+
+    <style></style>
+  </head>
+  <body>
+    <div id="map"></div>
+
+    <script>
+      var map = L.map("map").setView([-8.6795069, 116.3460803], 12);
+      L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+      }).addTo(map);
+
+      var Rumah = L.marker([-8.667803, 116.369342]).addTo(map);
+      var Masjid = L.marker([-8.6683148, 116.3689611]).addTo(map);
+      var Pondok = L.marker([-8.6686621, 116.3691703]).addTo(map);
+      var Bengkel = L.marker([-8.669399, 116.370635]).addTo(map);
+      var Smk = L.marker([-8.6701308, 116.3692]).addTo(map);
+
+      Rumah.bindPopup("<b>Rumah</b><br>Ahmad Irfan Mawali").openPopup();
+      Masjid.bindPopup("<b>Masjid</b><br>Sirajul Huda").openPopup();
+      Pondok.bindPopup("<b>Pondok Pesantren</b><br>Al-Idrisy Putri").openPopup();
+      Bengkel.bindPopup("<b>BENGKEL LAS</b><br>Sapu Rata").openPopup();
+      Smk.bindPopup("<b>SMKI</b><br>Sirajul Huda").openPopup();
+
+      map.addControl(new L.Control.Fullscreen());
+    </script>
+  </body>
+</html>
